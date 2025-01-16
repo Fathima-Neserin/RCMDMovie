@@ -7,6 +7,11 @@ document
     const duration = document.getElementById("duration").value;
     const mood = document.getElementById("mood").value;
 
+    // Validation
+    if (!genre || !duration || !mood) {
+      alert("Please select all options before submitting!");
+      return;
+  }
     const recommendation = generateRecommendation(genre, duration, mood);
 
     document.getElementById("recommendation").innerHTML = recommendation;
@@ -152,11 +157,13 @@ function generateRecommendation(genre, duration, mood) {
     },
   };
 
-
-  return (
-    (recommendations[genre] &&
-      recommendations[genre][duration] &&
-      recommendations[genre][duration][mood]) ||
-    "Sorry, no recommendation found based on your preferences."
-  );
+  if (
+    recommendations[genre] &&
+    recommendations[genre][duration] &&
+    recommendations[genre][duration][mood]
+) {
+    return recommendations[genre][duration][mood];
+} else {
+    return "Sorry, no movie recommendation found for your preferences. Please try another combination!";
+}
 }

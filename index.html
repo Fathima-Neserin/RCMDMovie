@@ -13,7 +13,8 @@
 
         <form id="movie-form">
             <label for="genre">Preferred Genre:</label>
-            <select id="genre">
+            <select id="genre" required>
+                <option value="">Select</option>
                 <option value="Action">Action</option>
                 <option value="Comedy">Comedy</option>
                 <option value="Drama">Drama</option>
@@ -22,14 +23,16 @@
             </select>
 
             <label for="duration">Preferred Movie Duration:</label>
-            <select id="duration">
+            <select id="duration" required>
+                <option value="">Select</option>
                 <option value="Short">Short (<90 minutes) </option>
                 <option value="Medium">Medium (90-120 minutes)</option>
                 <option value="Long">Long (>120 minutes)</option>
             </select>
 
             <label for="mood">Mood:</label>
-            <select id="mood">
+            <select id="mood" required>
+                <option value="">Select</option>
                 <option value="Happy">Happy</option>
                 <option value="Relaxed">Relaxed</option>
                 <option value="Excited">Excited</option>
@@ -39,7 +42,7 @@
             <button type="submit">Submit</button>
         </form>
 
-        <div id="recommendation">Let's watch, Have Fun</div>
+        <div id="recommendation" aria-live="polite">Let's watch, Have Fun</div>
     </div>
 
     <script src="./js/script.js"></script>
